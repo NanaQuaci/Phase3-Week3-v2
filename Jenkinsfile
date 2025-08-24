@@ -21,9 +21,9 @@ pipeline {
 
                 // Run JMeter in non-GUI mode
                 sh '''
-                jmeter -n -t "${WORKSPACE}/FakestoreAPI Performance Test Plan.jmx" \
-                                       -l "${WORKSPACE}/results.jtl" \
-                                       -e -o "${WORKSPACE}/reports"
+                jmeter -n -t ${WORKSPACE}/FakestoreAPI_Performance_Test_Plan.jmx \
+                                       -l ${WORKSPACE}/results.jtl \
+                                       -e -o ${WORKSPACE}/reports
                 '''
             }
         }
