@@ -21,11 +21,12 @@ pipeline {
 
                 // Run JMeter in non-GUI mode
                 sh '''
-                jmeter -n -t ${WORKSPACE}/FakestoreAPI_Performance_Test_Plan.jmx \
-                                       -l ${WORKSPACE}/results.jtl \
-                                       -Jjmeter.save.saveservice.output_format=csv \
-                                       -e -o ${WORKSPACE}/reports \
-                                       -f -j ${WORKSPACE}/jmeter.log
+                jmeter -Jjmeter.save.saveservice.output_format=csv \
+                       -n -t ${WORKSPACE}/FakestoreAPI_Performance_Test_Plan.jmx \
+                       -l ${WORKSPACE}/results.jtl \
+                       -e -o ${WORKSPACE}/reports \
+                       -f -j ${WORKSPACE}/jmeter.log
+
 
                 echo ">>> Printing JMeter log (first 50 lines)"
                 head -n 50 ${WORKSPACE}/jmeter.log
