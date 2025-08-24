@@ -23,7 +23,8 @@ pipeline {
                 sh '''
                 jmeter -n -t ${WORKSPACE}/FakestoreAPI_Performance_Test_Plan.jmx \
                                        -l ${WORKSPACE}/results.jtl \
-                                       -e -o ${WORKSPACE}/reports
+                                       -e -o ${WORKSPACE}/reports \
+                                       -f
                 '''
             }
         }
