@@ -23,6 +23,7 @@ pipeline {
                 sh '''
                 jmeter -n -t ${WORKSPACE}/FakestoreAPI_Performance_Test_Plan.jmx \
                                        -l ${WORKSPACE}/results.jtl \
+                                       -Jjmeter.save.saveservice.output_format=csv \
                                        -e -o ${WORKSPACE}/reports \
                                        -f
                 '''
