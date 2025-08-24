@@ -25,7 +25,12 @@ pipeline {
                                        -l ${WORKSPACE}/results.jtl \
                                        -Jjmeter.save.saveservice.output_format=csv \
                                        -e -o ${WORKSPACE}/reports \
-                                       -f
+                                       -f -j ${WORKSPACE}/jmeter.log
+
+                echo ">>> Printing JMeter log (first 50 lines)"
+                head -n 50 ${WORKSPACE}/jmeter.log
+                echo ">>> Tail of JMeter log"
+                tail -n 50 ${WORKSPACE}/jmeter.log
                 '''
             }
         }
